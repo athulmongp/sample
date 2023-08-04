@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(6, 52, 70);
+        }
+        form{
+            background-color: rgb(255, 255, 255,0.7);
+            margin-left: 450px;
+            margin-top: 100px;
+            height: 400px;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 10px 10px;
+        }
+        form input[type="text"]{
+            width: 70%;
+            margin-left: 50px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 10px 10px;
+
+        }
+        h1{
+            text-align: center;
+            padding-top: 10px;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        #btn{
+            width: 70%;
+            margin-left: 60px;
+            padding: 10px;
+            border-radius: 10px;
+           
+            background-color: #000000;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #btn:hover{
+            padding: 12px;
+            background-color: #242323;
+
+        }
+        #op{
+            width: 70%;
+            margin-left: 60px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 10px 10px;
+
+        }
+    </style>
+<form action="{% url 'calculate' %}" method="POST">
+    {% csrf_token %}
+        <h1>CALCULATOR</h1>
+        <input type="text" name="num1" placeholder="enter first number"><br><br>
+        <input type="text" name="num2" placeholder="enter second number"><br><br>
+        <select name="op" id="op">
+            <option class="select">Select operation</option>
+            <option value="+">Addiction(+)</option>
+            <option value="-">substraction(-)</option>
+            <option value="*">Multiplication(*)</option>
+            <option value="/">Division(/)</option>
+        </select><br><br>
+
+        <input type="submit" value="CALCULATE" id="btn"><br><br>
+        <input class="result" type="text"  placeholder="result" name="result" value="{{result}}">
+    
+</form>
+</body>
+</html>
